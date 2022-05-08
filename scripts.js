@@ -1,76 +1,92 @@
-//variables
-let userChoice;
-let computerChoice = computerPlay(); 
-let result;
+/////////////////////////// End of Day Notes //////////////////////////////////
+// script works, need to add counters for winner of each round
+// need to add loop for 5 rounds
+// need to present a winner after 5 rounds
+// need to terminate game after 5 rounds
+///////////////////////////////////////////////////////////////////////////////
+// To display the user choice 
+const userChoiceDisplay = document.getElementById('user-choice')
+// To display the computer choice 
+const computerChoiceDisplay = document.getElementById('computer-choice')
+// To display the result of the round
+const resultDisplay = document.getElementById('result') 
+// To return all elements that matches a CSS selector (should be 3 elements)
+const possibleChoices = document.querySelectorAll('button')
 
-let userCount;
-let computerCount;
 
-// will return all elements that matches a CSS selector (should be 3 elements)
-const possibleChoices = document.querySelectorAll('button');
-// will display the computer choice 
-const computerChoiceDisplay = document.getElementById('computer-choice'); 
-// will display the user choice 
-const userChoiceDisplay = document.getElementById('user-choice');
-// will display the result of the round
-const resultDisplay = document.getElementById('result');
+// // to display the result of the game
+// const resultGameDisplay = document.getElementById('result-game')
+// //
+// const userCountDisplay = document.getElementById('user-count')
+// //
+// const computerCountDisplay = document.getElementById('computer-count')
 
-possibleChoices.forEach(possibleChoices => possibleChoices.addEventListener('click', (event) => 
- {
-  userChoice = event.target.id 
+// Variables
+let userChoice 
+let computerChoice 
+let result
+// let userCount = 0
+// let computerCount = 0
+
+// For each choice it will add an event listener for a click
+possibleChoices.forEach(button => button.addEventListener('click', (event) => 
+ {//every time you click, all below will happen
+  userChoice = event.target.id
   userChoiceDisplay.innerHTML = userChoice
   computerPlay()
   playRound()
+//   game(userChoice,computerChoice)
+//   whoWins(userChoice,computerChoice)
  }
 ))
 
 //function to give the computer random choices
 function computerPlay()
-{
-    const random = Math.floor(Math.random() * possibleChoices.length) + 1;
-    let selection;
+{   // It will give you a random number from 0 - 2 (one of the three) 
+    // Added 1 so it goes from 1 - 3
+    const random = Math.floor(Math.random() * possibleChoices.length) + 1
+    
     if(random === 1)
     {
-        selection = 'rock';
+        computerChoice = 'rock'
     }
-    elseif(random === 2)
+    if(random === 2)
     {
-        selection = 'paper';
+        computerChoice = 'scissor'
     }
-    elseif(random === 3)
+    if(random === 3)
     {
-        selection = 'scissor';
+        computerChoice = 'paper'
     }
-    computerChoiceDisplay.innerHTML = selection
-    return selection;
+    computerChoiceDisplay.innerHTML = computerChoice
+    // return computerChoice
 }
 
 //function for each round wins or loses selection
-function playRound (userChoice,computerChoice)
+function playRound()
 {
-    let result;
     // User and Computer same choice
     if(userChoice === computerChoice)
     {
-        result = 'Draw!';
+        result = 'Its a Draw!'
     }
     // User loses cases
     if(userChoice === 'rock' && computerChoice === 'paper')
     {
-        result = 'You Lose!';
+        result = 'You Lost!'
     }
     if(userChoice === 'paper' && computerChoice === 'scissor')
     {
-        result = 'You Lose!';
+        result = 'You Lost!'
     }
     if(userChoice === 'scissor' && computerChoice === 'rock')
     {
-        result = 'You Lose!';
+        result = 'You Lost!'
     }
     // User wins cases
     if(userChoice === 'rock' && computerChoice === 'scissor')
     {
-        result = 'You Win!';
+        result = 'You Win!'
     }
     if(userChoice === 'paper' && computerChoice === 'rock')
     {
@@ -78,40 +94,34 @@ function playRound (userChoice,computerChoice)
     }
     if(userChoice === 'scissor' && computerChoice === 'paper')
     {
-        result = 'You Win!';
+        result = 'You Win!'
     }
     resultDisplay.innerHTML = result
-    return result;
+    // return result
 }
 
-//function is made to be able to play a game of 5 rounds
-function game(userChoice,computerChoice)
-{
-    for (let i = 0; i < 5; i++)
-    {
-      playRound(userChoice,computerChoice);
-      whoWins(userChoice,computerChoice);
-      userCount.innerHTML = userCount;
-      computerCount.innerHTML = computerCount;
-    }
-}
+// // function is made to be able to play a game of 5 rounds
+// function game(userChoice,computerChoice)
+// {
+//     for (let i = 0; i < 5; i++) 
+//     {     
+//       userCountDisplay.innerHTML = userCount
+//       computerCountDisplay.innerHTML = computerCount
+//       playRound(userChoice,computerChoice)
+//       whoWins(userChoice,computerChoice)
 
-function whoWins(userChoice,computerChoice)
-{
-   if(playRound(userChoice,computerChoice) === 'You Win!')
-   {
-     userCount += 1;
-   }
-   else (playRound(userChoice,computerChoice) === 'You Lose!')
-   {
-     computerCount += 1;
-   }   
-}
+//     }
+// }
 
-
-
-
-
-
-
+// function whoWins(userChoice,computerChoice)
+// {
+//    if(playRound(userChoice,computerChoice) === 'You Win!')
+//    {
+//      userCount ++
+//    }
+//    else (playRound(userChoice,computerChoice) === 'You Lost!')
+//    {
+//      computerCount ++
+//    }   
+// }
 
