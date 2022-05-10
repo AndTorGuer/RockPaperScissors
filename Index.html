@@ -4,56 +4,20 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Rock Paper Scissor</title>
-    <!-- remove later  -->
-    <style>
-        table, th, td 
-        {
-          border:1px solid black;
-        }
-    </style>
 </head>
 <body>
-    <h1 class="">Welcome to a game of Rock, Paper and Scissor.</h1> 
-
+    <h1 class="first-heading">Welcome to a game of Rock, Paper and Scissor.</h1> 
+    <p class="alignment">
     <h2>Computer Choice: <span id="computer-choice"></span></h2>
     <h2>Your Choice: <span id="user-choice"></span></h2>
-    <h2>Result: <span id="result"></span></h2>
-
-    <!-- <table style="width: 25% ">
-        <tr>
-          <th></th>
-          <th>Choice</th>
-          <th>Wins</th>
-        </tr>
-        <tr>
-          <td><h2>Player:</h2></td>
-          <td><div id="user-choice"></div></td>
-          <td><div id="user-count"></div></td>
-        </tr>
-        <tr>
-          <td><h2>Computer:</h2></td>
-          <td><div id="computer-choice"></div></td>
-          <td><div id="computer-count"></div></td>
-        </tr>
-        <tr>
-          <td><h2>Result:</h2></td>
-          <td><div id="result"></div></td>
-          <td><div id="result-game"></div></td>
-        </tr>
-    </table> -->
-
-
-    <button id="rock"><img src="/images/hand-o-rock.png" alt="rock-hand">rock</button>
-
-    <button id="scissor"><img src="/images/hand-o-scissors.png" alt="scissor-hand">scissor</button>
-
-    <button id="paper"><img src="/images/hand-o-stop.png" alt="paper-hand">paper</button>
+    <h2>Round Result: <span id="result"></span></h2>
+    </p>
+    <button class="btn btn-1" id="rock"></button>
+    <button class="btn btn-2" id="scissor"></button>
+    <button class="btn btn-3" id="paper"></button>
     
-    <!-- <button id="rock">rock</button>
-    <button id="scissor">scissor</button>
-    <button id="paper">paper</button> -->
-
     <script src="scripts.js" charset="utf-8"></script>
 </body>
 </html>
